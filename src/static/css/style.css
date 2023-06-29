@@ -1,0 +1,387 @@
+body {
+   font-family: "Oswald";
+   color: var(--main-color);
+   background-color: var(--sub-color);
+}
+
+:root {
+   --main-color: black;
+   --sub-color: white;
+}
+
+.wrapper {
+   margin: 0 5%;
+}
+
+.wrapper-header {
+   min-height: 5vh;
+}
+
+.wrapper-header-main {
+   display: grid;
+   grid-template-areas:
+      "A A A B   B B B B   B B B B";
+}
+
+.header-logo {
+
+
+   display: grid;
+   grid-template-columns: 20px auto;
+   justify-content: start;
+   align-items: start;
+   column-gap: 18%;
+}
+
+.header-list {
+   grid-area: B;
+   display: grid;
+   font-style: 500;
+   font-size: 17px;
+   grid-template-columns: repeat(5, 10%);
+   grid-column: 6%;
+   align-items: center;
+   justify-content: end;
+}
+
+.header-logo-img {
+
+   margin-top: 25%;
+}
+
+.header-logo-img img {
+   width: 50px;
+   height: 50px;
+}
+
+.header-logo-text {
+
+   font-weight: 350;
+   font-size: 38px;
+}
+
+[class^="header-list-item"] {
+   text-align: center;
+   font-weight: 300;
+
+}
+
+[class^="header-list-item-"] {}
+
+[class^="header-list-item-"]:after {
+   display: block;
+   position: relative;
+   left: auto;
+   margin-left: 20%;
+   /*изменить на right:0;, чтобы изменить направление подчёркивания */
+   width: 0%;
+   /*задаём длинну линии до наведения курсора*/
+   height: 1px;
+   /*задаём ширину линии*/
+   background-color: var(--main-color);
+   /*задаём цвет линии*/
+   content: "";
+   transition: width 0.3s ease-out;
+   /*задаём время анимации*/
+}
+
+[class^="header-list-item-"]:hover:after,
+[class^="header-list-item-"]:focus:after {
+   width: 60%;
+   /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+
+.header-list-item__authbtn {
+   margin-left: 20px;
+   border: 1px solid var(--main-color);
+   padding-bottom: 3%;
+}
+
+.header-list-item__authbtn:hover {
+   background-color: var(--main-color);
+   color: var(--sub-color);
+   transition: .4s;
+}
+
+.wrapper-main {
+   display: grid;
+   min-height: 80vh;
+   grid-template-areas: "A  B";
+}
+
+.main-text {
+   grid-area: A;
+   justify-content: center;
+}
+
+.main-text__info {
+   padding-top: 5%;
+   font-size: 20px;
+}
+
+.main-text__info h2 {
+   font-size: 37px;
+}
+
+.buttons {
+   margin-top: 50px;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: flex-start;
+}
+
+.button1 a {
+   margin-left: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+
+   border: 2px var(--main-color) solid;
+   border-radius: 20px;
+   color: var(--main-color);
+   text-decoration: none;
+
+   transition: 0.3s ease-out;
+}
+
+.button1 a:hover {
+   color: var(--sub-color);
+   background: var(--main-color);
+
+
+}
+
+
+.button2 a:hover {
+   color: var(--sub-color);
+   background: var(--main-color);
+
+
+}
+
+.button2 a {
+   margin-left: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   transition: width 0.3s ease-out;
+   border: 2px var(--main-color) solid;
+   border-radius: 20px;
+   color: var(--main-color);
+   text-decoration: none;
+
+
+}
+
+.main-image {
+   grid-area: B;
+
+   padding: 2%;
+   margin-top: 17%;
+   margin-left: 20%;
+
+}
+
+
+
+
+#main-image {
+   width: 100%;
+   height: 70%;
+}
+
+
+.wrapper-footer {
+
+   border-top: 2px solid black;
+   display: grid;
+   min-height: 9vh;
+   justify-content: end;
+   align-items: center;
+   grid-template-columns: repeat(4, 10%);
+   column-gap: 5%;
+}
+
+.choose-color {
+   border: 2px var(--main-color) solid;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   background-color: var(--main-color);
+   color: var(--main-color);
+}
+
+.footer-text__content {
+   text-align: center;
+}
+
+.wrapper-main-market {
+   min-height: 80vh;
+}
+
+.content-wrapper {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: 1fr;
+   margin-top: 3%;
+   column-gap: 2%;
+   row-gap: 2%;
+   margin-bottom: 10%;
+}
+
+.content-block {
+   display: grid;
+
+   border: 2px solid var(--main-color);
+   grid-template-areas:
+      "G A A A"
+      "B B B B";
+   max-width: 100%;
+
+   border-radius: 20px;
+   padding: 10px;
+
+}
+
+.content-block__img {
+   grid-area: G;
+   width: 30px;
+   height: 30px;
+}
+.btn {
+      display:none;
+   }
+
+.content-block__text {
+   grid-area: A;
+}
+
+.content-block__text-sub {
+   grid-area: B;
+}
+
+.block-text {
+   max-width: 50vh;
+}
+
+.block-docx {
+   display: grid;
+   grid-template-rows: 1fr;
+   row-gap: 5%;
+   justify-content: center;
+}
+
+
+.wrapper-login {
+
+   border: 2px solid black;
+   margin-top: 13%;
+   margin-left: 40%;
+   margin-right: 40%;
+   min-height: 33vh;
+
+}
+
+.wrapper-login-form {
+   padding-left: 3vh;
+   padding-right: 3vh;
+   padding-top: 10%;
+   display: grid;
+   row-gap: 5vh;
+   grid-template-rows: repeat(3, 5vh);
+}
+
+.content-forum {
+   margin-top: 50px;
+   display: grid;
+
+   grid-gap: 10px;
+   grid-template-columns: repeat(3, 450px);
+}
+
+.forum-content-block {}
+
+.forum-content-block__author {
+   padding-top: 5px;
+   padding-bottom: 5px;
+   padding-left: 10px;
+
+   font-style: italic;
+}
+
+.forum-content-block__text {
+   padding-top: 5px;
+   padding-bottom: 5px;
+   padding-left: 10px;
+}
+
+.forum-content-block__datepub {
+   text-align: end;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   padding-right: 10px;
+
+   font-size: 10px;
+}
+
+#forum-input-area {
+   margin-top: 20px;
+   margin-left: 13%;
+   width: 60%;
+   height: auto;
+}
+
+.blokc-docs {
+   display: grid;
+   grid-template-columns: auto;
+   grid-row: 40px;
+   justify-items: center;
+}
+
+
+
+[class^="doc-"] img {
+   height: 100px;
+   margin-right: 200px;
+   margin-top: 100px;
+}
+
+
+@media (max-width: 1200px) {
+
+   .main-image {
+      display: none;
+   }
+
+   [class^="header-list-item-"] {
+      display: none;
+   }
+
+   .header-list {
+      display: flex;
+      align-items: flex-end;
+   }
+
+   .header-list-item__authbtn {
+      padding: 10px 20px;
+   }
+
+   .wrapper-footer {
+      display: none;
+   }
+
+   .content-forum {
+      grid-template-columns: auto;
+      justify-content: center;
+   }
+
+   .content-wrapper {
+      grid-template-columns: auto;
+      justify-content: center;
+   }
+   .btn {
+      display: block;
+   }
+}
