@@ -1,4 +1,7 @@
+import time
+
 from fastapi import APIRouter, Depends, Request, HTTPException
+from fastapi_cache.decorator import cache
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -67,6 +70,31 @@ async def get_your_programs(l_user: User = Depends(current_active_user), session
     except Exception as e:
         print(e)
         return HTTPException(status_code=500, detail={
+            "status": "Error",
+            "data": f"{e}",
+            "details": None,
+        })
+
+
+#Пометка для себя кэширование работате только для get запросов))
+
+@router.get("/your_program/")
+@cache(expire=60)
+def get_program(
+        id_program: int,
+        l_user: User = Depends(current_active_user),
+        session: AsyncSession = Depends(get_async_session),
+):
+    try:
+        "Код получения из бд программы пользователя"
+        time.sleep(2)
+        return {
+            "status": "success",
+            "data": {"name": "Имя программы", "text": "Какой-то текст из файла"},
+            "details": None,
+        }
+    except Exception as e:
+        return HTTPException(500, detail={
             "status": "Error",
             "data": f"{e}",
             "details": None,

@@ -6,8 +6,10 @@ from main_app.router import router as main_app_router
 from operations.router import router as operations_router
 from aiohttp import web
 from aiohttp_asgi import ASGIResource
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
 
-
+from redis import asyncio as aioredis
 
 app = FastAPI(
     title="Fitnes Today ",
@@ -17,6 +19,13 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(auth_router)
 app.include_router(main_app_router)
 app.include_router(operations_router)
+
+@app.on_event("startup")
+async def startup():
+    print("start startup")
+    redis = aioredis.from_url("redis://localhost")
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
+
 
 aiohttp_app = web.Application()
 
