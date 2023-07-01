@@ -4,6 +4,7 @@ from starlette.staticfiles import StaticFiles
 from auth.router import router as auth_router
 from main_app.router import router as main_app_router
 from operations.router import router as operations_router
+from tasks.router import router as test_task_router
 from aiohttp import web
 from aiohttp_asgi import ASGIResource
 from fastapi_cache import FastAPICache
@@ -19,6 +20,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(auth_router)
 app.include_router(main_app_router)
 app.include_router(operations_router)
+app.include_router(test_task_router)
+
 
 @app.on_event("startup")
 async def startup():
